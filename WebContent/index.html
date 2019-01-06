@@ -2,10 +2,197 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Color Matching Webpage</title>
+<title>Color Matching WebPage</title>
 <script src="./src/jquery-2.0.2.min.js"></script>
 </head>
-<body>
+<style>
 
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+	color: white;
+	font-size : 20px;
+	background-color:#993399;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#title {
+	font-size : 30px;
+}
+#showColor, #resultColor{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-color: #ccc;
+    left: 5px;
+    top: 5px;
+    border-style:solid;
+    color: black;
+    border-width: 1px;
+    
+originColor
+</style>
+<script>
+	function showColorFunction(select){
+		document.getElementById("showColor").style.backgroundColor = select.options[select.selectedIndex].style.backgroundColor;
+	}
+	function choice1(select) {
+	     alert(select.options[select.selectedIndex].style.backgroundColor);
+	}
+
+</script>
+<body>
+<div id="title"><h1>Color Matching Program</h1> </div>
+<div id="inputForm">
+	<a> Choose the color you have </a> <br/>
+	<select name="originColor" onchange="showColorFunction(this)">
+		<option disabled selected>Choose the color</option> 
+		<option value='white' style="background-color:#ffffff;">white</option>
+		<option value='off white' style="background-color:#fffff2;">off white</option>
+		<option value='bamboo' style="background-color:#efebd6;">bamboo</option>
+		<option value='beige' style="background-color:#f5f5dc;">beige</option>
+		<option value='harbor' style="background-color:#d9e1e1;">harbor</option>
+		<option value='honeydew' style="background-color:#f0fff0;">honeydew</option>
+		<option value='ivory' style="background-color:#fffff0;">ivory</option>
+		<option value='linen' style="background-color:#faf0e6;">linen</option>
+		<option value='natural' style="background-color:#f8f7ed;">natural</option>
+		<option value='peach' style="background-color:#ffdab9;">peach</option>
+		<option value='red' style="background-color:#FF0000;">red</option>
+		<option value='bright red' style="background-color:#de1738;">bright red</option>
+		<option value='berry red' style="background-color:#701f28;">berry red</option>
+		<option value='burnt' style="background-color:#8a3324;">burnt</option>
+		<option value='brick' style="background-color:#841F27;">brick</option>
+		<option value='red hot' style="background-color:#ff0000;">red hot</option>
+		<option value='rosewood' style="background-color:#65000b;">rosewood</option>
+		<option value='garnett' style="background-color:#781c2e;">garnett</option>
+		<option value='orange' style="background-color:#FFA500;">orange</option>
+		<option value='amber' style="background-color:#ffbf00;">amber</option>
+		<option value='coral' style="background-color:#ff7f50;">coral</option>
+		<option value='chestnut' style="background-color:#cd5c5c;">chestnut</option>
+		<option value='gold' style="background-color:#FFD700;">gold</option>
+		<option value='lulu' style="background-color:#d35151;">lulu</option>
+		<option value='salmon' style="background-color:#fa8072;">salmon</option>
+		<option value='spicy' style="background-color:#ff4d00;">spicy</option>
+		<option value='sun' style="background-color:#FDB813;">sun</option>
+		<option value='tangerine' style="background-color:#f28500;">tangerine</option>
+		<option value='yellow' style="background-color:#FFFF00;">yellow</option>
+		<option value='butter' style="background-color:#fdf6c5;">butter</option>
+		<option value='canary' style="background-color:#ffff99;">canary</option>
+		<option value='dandelion' style="background-color:#f0e130;">dandelion</option>
+		<option value='luminary' style="background-color:#E3ECA6;">luminary</option>
+		<option value='mustard' style="background-color:#ffdb58;">mustard</option>
+		<option value='pear' style="background-color:#d1e231;">pear</option>
+		<option value='green' style="background-color:#00ff00;">green</option>
+		<option value='dark green' style="background-color:#006400;">dark green</option>
+		<option value='light green' style="background-color:#90ee90;">light green</option>
+		<option value='aloe' style="background-color:#759966;">aloe</option>
+		<option value='chartreuse' style="background-color:#7fff00;">chartreuse</option>
+		<option value='emerald' style="background-color:#50c878;">emerald</option>
+		<option value='forest' style="background-color:#014421;">forest</option>
+		<option value='grass' style="background-color:#4DBD33;">grass</option>
+		<option value='jade' style="background-color:#00a86b;">jade</option>
+		<option value='lagoon' style="background-color:#99dac4;">lagoon</option>
+		<option value='lawn' style="background-color:#01A611;">lawn</option>
+		<option value='lime' style="background-color:#bfff00;">lime</option>
+		<option value='lime green' style="background-color:#32cd32;">lime green</option>
+		<option value='light mint' style="background-color:#98ff98;">light mint</option>
+		<option value='maccaw' style="background-color:#a3bd1f;">maccaw</option>
+		<option value='monaco' style="background-color:#a1bbaf;">monaco</option>
+		<option value='mint' style="background-color:#3eb489;">mint</option>
+		<option value='olive' style="background-color:#808000;">olive</option>
+		<option value='pale green' style="background-color:#98fb98;">pale green</option>
+		<option value='peacock' style="background-color:#326872;">peacock</option>
+		<option value='pine' style="background-color:#01796f;">pine</option>
+		<option value='spruce' style="background-color:#427b5a;">spruce</option>
+		<option value='seaglass' style="background-color:#95e1c8;">seaglass</option>
+		<option value='teal' style="background-color:#008080;">teal</option>
+		<option value='vivid' style="background-color:#42e360;">vivid</option>
+		<option value='Xmas green' style="background-color:#3C8D0D;">Xmas green</option>
+		<option value='blue' style="background-color:#0000ff;">blue</option>
+		<option value='aqua dream' style="background-color:#00ffff;">aqua dream</option>
+		<option value='aquamarine' style="background-color:#7fffd4;">aquamarine</option>
+		<option value='baby blue' style="background-color:#89cff0;">baby blue</option>
+		<option value='cobalt' style="background-color:#0047ab;">cobalt</option>
+		<option value='denim' style="background-color:#1560bd;">denim</option>
+		<option value='dusk' style="background-color:#9b96d6;">dusk</option>
+		<option value='gum drop' style="background-color:#494779;">gum drop</option>
+		<option value='indigo' style="background-color:#4b0082;">indigo</option>
+		<option value='jubilee' style="background-color:#565e8d;">jubilee</option>
+		<option value='midnight' style="background-color:#003366;">midnight</option>
+		<option value='maui' style="background-color:#1da2d8;">maui</option>
+		<option value='navy' style="background-color:#000080;">navy</option>
+		<option value='pale blue' style="background-color:#afeeee;">pale blue</option>
+		<option value='pacific' style="background-color:#24427a;">pacific</option>
+		<option value='pool' style="background-color:#b8e9ee;">pool</option>
+		<option value='powder blue' style="background-color:#b0e0e6;">powder blue</option>
+		<option value='reflex blue' style="background-color:#171796;">reflex blue</option>
+		<option value='robin' style="background-color:#3fbec9;">robin</option>
+		<option value='royal blue' style="background-color:#4169e1;">royal blue</option>
+		<option value='sapphire' style="background-color:#0f52ba;">sapphire</option>
+		<option value='slate' style="background-color:#5F7D99;">slate</option>
+		<option value='sky blue' style="background-color:#87ceeb;">sky blue</option>
+		<option value='steel blue' style="background-color:#4682b4;">steel blue</option>
+		<option value='teal love' style="background-color:#66b2b2;">teal love</option>
+		<option value='turquoise' style="background-color:#40e0d0;">turquoise</option>
+		<option value='purple' style="background-color:#800080;">purple</option>
+		<option value='purple rain' style="background-color:#622f75;">purple rain</option>
+		<option value='amethyst' style="background-color:#9966cc;">amethyst</option>
+		<option value='grape' style="background-color:#6f2da8;">grape</option>
+		<option value='hazey' style="background-color:#815c9c;">hazey</option>
+		<option value='lavendar' style="background-color:#e6e6fa;">lavendar</option>
+		<option value='lilac' style="background-color:#c8a2c8;">lilac</option>
+		<option value='orchid' style="background-color:#da70d6;">orchid</option>
+		<option value='pretty plum' style="background-color:#dda0dd;">pretty plum</option>
+		<option value='pink' style="background-color:#FFC0CB;">pink</option>
+		<option value='light pink' style="background-color:#ffb6c1;">light pink</option>
+		<option value='hot pink' style="background-color:#ff69b4;">hot pink</option>
+		<option value='azalea' style="background-color:#F1B2E1;">azalea</option>
+		<option value='bright pink' style="background-color:#ff007f;">bright pink</option>
+		<option value='blush' style="background-color:#de5d83;">blush</option>
+		<option value='bubblegum' style="background-color:#ffc1cc;">bubblegum</option>
+		<option value='cerise' style="background-color:#de3163;">cerise</option>
+		<option value='dusted petal' style="background-color:#a551a1;">dusted petal</option>
+		<option value='flamingo' style="background-color:#fc8eac;">flamingo</option>
+		<option value='fuschia' style="background-color:#ae2865;">fuschia</option>
+		<option value='peony' style="background-color:#ffabc8;">peony</option>
+		<option value='plum' style="background-color:#dda0dd;">plum</option>
+		<option value='raspberry ' style="background-color:#e30b5d;">raspberry </option>
+		<option value='rose' style="background-color:#ff007f;">rose</option>
+		<option value='tulip' style="background-color:#ff878d;">tulip</option>
+		<option value='brown' style="background-color:#a52a2a;">brown</option>
+		<option value='light taupe' style="background-color:#b38b6d;">light taupe</option>
+		<option value='mocha' style="background-color:#6F372D;">mocha</option>
+		<option value='russet' style="background-color:#80461b;">russet</option>
+		<option value='sandstone' style="background-color:#c2b280;">sandstone</option>
+		<option value='tan' style="background-color:#d2b48c;">tan</option>
+		<option value='grey' style="background-color:#808080;">grey</option>
+		<option value='light grey' style="background-color:#d3d3d3;">light grey</option>
+		<option value='coblestone' style="background-color:#ada7a9;">coblestone</option>
+		<option value='sage' style="background-color:#9C9F84;">sage</option>
+		<option value='black' style="background-color:#000000;">black</option>
+		<option value='charcoal' style="background-color:#36454f;">charcoal</option>
+		<option value='metallic silver' style="background-color:#BCC6CC;">metallic silver</option>
+		<option value='metallic bronze' style="background-color:#554A3C;">metallic bronze</option>
+		<option value='metallic gold' style="background-color:#D4AF37;">metallic gold</option>
+
+
+	</select>
+	
+</div>
+<br/><br/>
+<div>
+	what color you chose: <br/>
+	<div id="showColor"></div>
+
+</div>
+<br/><br/>
+<div>
+	what color matches: <br/>
+	<div id="resultColor"></div> 
+</div>
 </body>
 </html>
