@@ -37,19 +37,68 @@ body {
 originColor
 </style>
 <script>
-	function showColorFunction(select){
+	function showChosenColorFunction(select){
 		document.getElementById("showColor").style.backgroundColor = select.options[select.selectedIndex].style.backgroundColor;
+	}
+	
+	function showResultColorFunction(select){
+		document.getElementById("resultColor").style.backgroundColor = select.options[select.selectedIndex].style.backgroundColor;
+		
 	}
 	function choice1(select) {
 	     alert(select.options[select.selectedIndex].style.backgroundColor);
 	}
 
 </script>
+<script>
+$(document).ready(function(){
+	$("#dropdown-list").on('change', function(){
+	    console.log("list item selected");
+	    var color = $(this).val();
+	    console.log(color);
+	    $.ajax({
+			url:"MainServlet",
+			type:'GET',
+			data: "color="+color,
+			dataType: "json",
+			success:function(data){
+				console.log(data);
+				console.log(data.color);
+				var count = Object.keys(data.color).length;
+				
+				for(var i=0; i<count; i++){
+					console.log("data"+i);
+				
+					 $('#dropdown-result-list').append($('<option>', {
+				    	 
+					     
+					        value: data.color[i],
+					        text : data.color[i],
+					        id : "data"+i
+					        
+				    }));
+					 $("#data"+i).css({
+						'background-color':data.hex[i] 
+					 });
+					 
+					 
+				}
+				//$("#dropdown-result-list").empty();
+			},
+			error:function(jqXHR, textStatus, errorThrown){
+				alert("Error: "+textStatus+" : "+errorThrown);
+			}
+		});
+	});
+});
+
+
+</script>
 <body>
 <div id="title"><h1>Color Matching Program</h1> </div>
 <div id="inputForm">
 	<a> Choose the color you have </a> <br/>
-	<select name="originColor" onchange="showColorFunction(this)">
+	<select name="originColor" onchange="showChosenColorFunction(this)" id="dropdown-list">
 		<option disabled selected>Choose the color</option> 
 		<option value='white' style="background-color:#ffffff;">white</option>
 		<option value='off white' style="background-color:#fffff2;">off white</option>
@@ -188,6 +237,12 @@ originColor
 
 </div>
 <br/><br/>
+<div id="outputForm">
+	
+	<select name="resultColor" onchange="showResultColorFunction(this)" id="dropdown-result-list">
+		<option disabled selected>Check the result of matching color</option>
+	</select>
+</div>		
 <div>
 	what color matches: <br/>
 	<div id="resultColor"></div> 
