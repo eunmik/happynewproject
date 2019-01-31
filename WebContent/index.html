@@ -55,7 +55,6 @@ $(document).ready(function(){
 	$("#dropdown-list").on('change', function(){
 	    console.log("list item selected");
 	    var color = $(this).val();
-	    console.log(color);
 	    $.ajax({
 			url:"MainServlet",
 			type:'GET',
@@ -63,11 +62,12 @@ $(document).ready(function(){
 			dataType: "json",
 			success:function(data){
 				console.log(data);
-				console.log(data.color);
+				
+				$("#dropdown-result-list").html("");
+				$("#dropdown-result-list").append("<option disabled selected>See the colors matched</option> ");
 				var count = Object.keys(data.color).length;
 				
 				for(var i=0; i<count; i++){
-					console.log("data"+i);
 				
 					 $('#dropdown-result-list').append($('<option>', {
 				    	 
@@ -83,7 +83,6 @@ $(document).ready(function(){
 					 
 					 
 				}
-				//$("#dropdown-result-list").empty();
 			},
 			error:function(jqXHR, textStatus, errorThrown){
 				alert("Error: "+textStatus+" : "+errorThrown);
@@ -240,7 +239,7 @@ $(document).ready(function(){
 <div id="outputForm">
 	
 	<select name="resultColor" onchange="showResultColorFunction(this)" id="dropdown-result-list">
-		<option disabled selected>Check the result of matching color</option>
+		<option disabled selected>See the colors matched</option>
 	</select>
 </div>		
 <div>
